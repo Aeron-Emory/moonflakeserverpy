@@ -6,9 +6,9 @@ import exaroton
 import os
 
 # Bot and Exaroton configuration
-DISCORD_TOKEN = os.environ['DISCORD_TOKEN']
-EXAROTON_API_KEY = os.environ['EXAROTON_API_KEY']
-EXAROTON_SERVER_ID = os.environ['EXAROTON_SERVER_ID']
+DISCORD_TOKEN = os.environ.get('DISCORD_TOKEN')
+EXAROTON_API_KEY = os.environ.get('EXAROTON_API_KEY')
+EXAROTON_SERVER_ID = os.environ.get('EXAROTON_SERVER_ID')
 
 # Initialize bot with all intents enabled
 intents = discord.Intents.all()
