@@ -5,6 +5,23 @@ import requests
 import exaroton
 import os
 
+from threading import Thread
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/healthz')
+def health():
+    return "OK", 200
+
+def run_flask():
+    app.run(port=8000)
+
+if __name__ == "__main__":
+    # Start Flask in a separate thread
+    flask_thread = Thread(target=run_flask)
+    flask_thread.start()
+
 # Bot and Exaroton configuration
 DISCORD_TOKEN = os.environ.get('DISCORD_TOKEN')
 EXAROTON_API_KEY = os.environ.get('EXAROTON_API_KEY')
